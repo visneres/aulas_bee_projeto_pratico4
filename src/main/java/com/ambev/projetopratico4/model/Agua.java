@@ -1,13 +1,13 @@
 package com.ambev.projetopratico4.model;
 
-public class Agua extends Produto{
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Agua")
+public class Agua extends Produto {
 
     private boolean comGas;
 
-    public Agua(){
-    }
-
-    public Agua(String id, String nome, String descricao, double preco, boolean comGas){
+    public Agua(String id, String nome, String descricao, double preco, boolean comGas) {
         super(id, nome, descricao, preco);
         this.comGas = comGas;
     }
@@ -18,5 +18,18 @@ public class Agua extends Produto{
 
     public void setComGas(boolean comGas) {
         this.comGas = comGas;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id='" + getId() + '\'' +
+                ", nome='" + getNome() + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
+                ", preco=" + getPreco() +
+                ", comGas=" + comGas +
+                '}';
+
+
     }
 }

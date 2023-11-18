@@ -1,7 +1,9 @@
 package com.ambev.projetopratico4.model;
 
 import jakarta.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Produto {
 
     @Id
@@ -10,7 +12,15 @@ public class Produto {
     private String descricao;
     private double preco;
 
-    public Produto(){
+    @Override
+    public String toString(){
+        return "Produto{" +
+                "id='" + id + '\'' +
+                "nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", preco=" + preco +
+                '}';
+
     }
 
     public Produto(String id, String nome, String descricao, double preco){
